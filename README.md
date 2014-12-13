@@ -1,0 +1,1 @@
+I'm not the original creator of this terminal app!! I just recompiled (and reprogrammed) it a little to work with iOS 8. Original can be found here: https://code.google.com/p/mobileterminal/
