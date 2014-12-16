@@ -55,17 +55,17 @@
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B1F122BE0B2E0E7EEBF96FFA224E834DA8B1FC13</string>
+			<string>58fa8ae0-6a36-0410-a7a1-b30e0234c60e++4964</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MobileTerminal</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>58fa8ae0-6a36-0410-a7a1-b30e0234c60e++4964</string>
+			<string>B1F122BE0B2E0E7EEBF96FFA224E834DA8B1FC13</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MobileTerminal</string>
 		</dict>

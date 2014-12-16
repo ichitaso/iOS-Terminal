@@ -272,11 +272,11 @@
   menuButton.transform = CGAffineTransformMakeRotation(-90.0f * M_PI / 180.0f);
   [menuButton setNeedsLayout];
   
-  CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+   /*CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     
     if (![UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad && screenSize.height >= 667.0) {
-        preferencesButton.frame = CGRectOffset(preferencesButton.frame, -screenSize.width +100.0, 0.0);
-    }
+         preferencesButton.frame = CGRectOffset(preferencesButton.frame, -screenSize.width +100.0, 0.0);
+     }*/
     
   // Setup the page control that selects the active terminal
   [terminalSelector setNumberOfPages:[terminalGroupView terminalCount]];
