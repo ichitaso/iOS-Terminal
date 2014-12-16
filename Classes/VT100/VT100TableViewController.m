@@ -91,7 +91,7 @@
   NSArray* subviews = [cell.contentView subviews];
   NSAssert([subviews count] == 1, @"Invalid contentView size");
   VT100RowView* rowView = [subviews objectAtIndex:0];
-  rowView.rowIndex = tableRow;
+  rowView.rowIndex = (int)tableRow;
   rowView.fontMetrics = fontMetrics;  
   // resize the row in case the table has changed size
   cell.frame = [self cellFrame];

@@ -54,6 +54,7 @@
 		2C72B32C101ABC2F00F10E63 /* libPreferences.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C11C9C91014035800A2746E /* libPreferences.a */; };
 		2C72B3E3101AC4D100F10E63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		950868501A3C33970056FC3F /* DonateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9508684F1A3C33970056FC3F /* DonateController.m */; };
+		9509D9F31A3EAB1B00F40D16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9509D9F21A3EAB1B00F40D16 /* Images.xcassets */; };
 		95FEE5721A3AC9C600636608 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 95FEE56E1A3AC9C600636608 /* arrow_down.png */; };
 		95FEE5731A3AC9C600636608 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 95FEE56F1A3AC9C600636608 /* arrow_left.png */; };
 		95FEE5741A3AC9C600636608 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 95FEE5701A3AC9C600636608 /* arrow_right.png */; };
@@ -241,6 +242,7 @@
 		32CA4F630368D1EE00C91783 /* MobileTerminal_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileTerminal_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileTerminal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileTerminal-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9508684F1A3C33970056FC3F /* DonateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonateController.m; sourceTree = "<group>"; };
+		9509D9F21A3EAB1B00F40D16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MobileTerminal/Images.xcassets; sourceTree = "<group>"; };
 		95FEE56E1A3AC9C600636608 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_down.png; path = Resources/arrow_down.png; sourceTree = "<group>"; };
 		95FEE56F1A3AC9C600636608 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_left.png; path = Resources/arrow_left.png; sourceTree = "<group>"; };
 		95FEE5701A3AC9C600636608 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = Resources/arrow_right.png; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9509D9F21A3EAB1B00F40D16 /* Images.xcassets */,
 				95FEE56E1A3AC9C600636608 /* arrow_down.png */,
 				95FEE56F1A3AC9C600636608 /* arrow_left.png */,
 				95FEE5701A3AC9C600636608 /* arrow_right.png */,
@@ -834,6 +837,7 @@
 				9F6B6D5512297447007BAD59 /* Icon.png in Resources */,
 				9F6B6D5612297447007BAD59 /* Icon@2x.png in Resources */,
 				9F6B6D5912297452007BAD59 /* Icon-72.png in Resources */,
+				9509D9F31A3EAB1B00F40D16 /* Images.xcassets in Resources */,
 				9F6B6D5A12297452007BAD59 /* Icon-Small-50.png in Resources */,
 				95FEE5741A3AC9C600636608 /* arrow_right.png in Resources */,
 				95FEE5721A3AC9C600636608 /* arrow_down.png in Resources */,
@@ -1054,6 +1058,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1065,9 +1071,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = Terminal;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1075,6 +1081,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1082,11 +1090,12 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "MobileTerminal-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = Terminal;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s armv6";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1360,7 +1369,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PLIST_FILE_OUTPUT_FORMAT = "same-as-input";
@@ -1383,7 +1392,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-all_load";
 				PLIST_FILE_OUTPUT_FORMAT = "same-as-input";
 				PREBINDING = NO;

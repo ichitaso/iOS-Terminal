@@ -59,7 +59,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-  selectedRow = row;
+  selectedRow = (int)row;
 }
 
 - (NSInteger)selectedRowInComponent:(NSInteger)component
@@ -79,7 +79,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-  id<GestureAction> action = [settings gestureActionAtIndex:row];
+  id<GestureAction> action = [settings gestureActionAtIndex:(int)row];
   return [action label];
 }
 

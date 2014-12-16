@@ -150,7 +150,7 @@ static NoneGestureAction* noneInstance;
 
 - (int)gestureItemCount
 {
-  return [gestureItems count];
+  return (int)[gestureItems count];
 }
 
 - (GestureItem*)gestureItemAtIndex:(int)index
@@ -173,7 +173,7 @@ static NoneGestureAction* noneInstance;
 
 - (int)gestureActionCount
 {
-  return [gestureActions count];
+  return (int)[gestureActions count];
 }
 
 - (id<GestureAction>)gestureActionAtIndex:(int)index

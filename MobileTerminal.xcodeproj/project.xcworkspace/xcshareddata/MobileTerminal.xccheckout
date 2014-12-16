@@ -10,6 +10,8 @@
 	<string>MobileTerminal</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>05D5B4E9B433611FE8785751198124204A821691</key>
+		<string>https://github.com/ichitaso/MobileTerminal-iOS8.git</string>
 		<key>58fa8ae0-6a36-0410-a7a1-b30e0234c60e</key>
 		<string>http://mobileterminal.googlecode.com/svn</string>
 		<key>58fa8ae0-6a36-0410-a7a1-b30e0234c60e++4964</key>
@@ -21,12 +23,14 @@
 	<string>MobileTerminal.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>05D5B4E9B433611FE8785751198124204A821691</key>
+		<string>../..</string>
 		<key>58fa8ae0-6a36-0410-a7a1-b30e0234c60e</key>
-		<string>../../../../..</string>
+		<string>../../..</string>
 		<key>58fa8ae0-6a36-0410-a7a1-b30e0234c60e++4964</key>
-		<string>../..</string>
+		<string>../../../MobileTerminal</string>
 		<key>B1F122BE0B2E0E7EEBF96FFA224E834DA8B1FC13</key>
-		<string>../..</string>
+		<string>../../../MobileTerminal</string>
 	</dict>
 	<key>IDESourceControlProjectRepositoryRootDictionary</key>
 	<dict>
@@ -34,11 +38,11 @@
 		<string>http://mobileterminal.googlecode.com/svn</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://mobileterminal.googlecode.com/svn/branches/applesdk/MobileTerminal/MobileTerminal.xcodeproj</string>
+	<string>https://github.com/ichitaso/MobileTerminal-iOS8.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>58fa8ae0-6a36-0410-a7a1-b30e0234c60e++4964</string>
+	<string>05D5B4E9B433611FE8785751198124204A821691</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -47,7 +51,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>58fa8ae0-6a36-0410-a7a1-b30e0234c60e</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B1F122BE0B2E0E7EEBF96FFA224E834DA8B1FC13</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MobileTerminal</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -61,9 +73,9 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B1F122BE0B2E0E7EEBF96FFA224E834DA8B1FC13</string>
+			<string>05D5B4E9B433611FE8785751198124204A821691</string>
 			<key>IDESourceControlWCCName</key>
-			<string>MobileTerminal</string>
+			<string>MobileTerminal-iOS8</string>
 		</dict>
 	</array>
 </dict>

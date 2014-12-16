@@ -45,7 +45,7 @@ static const int NUM_TERMINALS = 2;
 
 - (int)terminalCount
 {
-  return [terminals count];
+  return (int)[terminals count];
 }
 
 - (TerminalView*)terminalAtIndex:(int)index

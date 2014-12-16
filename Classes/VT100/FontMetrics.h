@@ -11,9 +11,9 @@
 @private
   UIFont* font;
   CTFontRef ctFont;
-  float ascent;
-  float descent;
-  float leading;
+  CGFloat ascent;
+  CGFloat descent;
+  CGFloat leading;
   CGSize boundingBox;
 }
 

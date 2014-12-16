@@ -96,7 +96,7 @@ static NSString* kMenuItemsKey = @"menuitems";
 
 - (int)menuItemCount
 {
-  return [menuItems count];
+  return (int)[menuItems count];
 }
 
 - (MenuItem*)menuItemAtIndex:(int)index

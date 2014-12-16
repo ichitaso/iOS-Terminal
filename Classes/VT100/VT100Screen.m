@@ -813,7 +813,7 @@ static __inline__ screen_char_t *incrementLinePointer(
     if (temp_buffer)
         free(temp_buffer);
 
-    int n = (screen_top - buffer_lines)/REAL_WIDTH - max_scrollback_lines;
+    int n = (int)(screen_top - buffer_lines)/REAL_WIDTH - max_scrollback_lines;
 
     temp_buffer=(screen_char_t *)malloc(size *(sizeof(screen_char_t)));
     if (n <= 0)
@@ -838,7 +838,7 @@ static __inline__ screen_char_t *incrementLinePointer(
 
     [self acquireLock];
 
-    int n = (screen_top - buffer_lines)/REAL_WIDTH - max_scrollback_lines;
+    int n = (int)(screen_top - buffer_lines)/REAL_WIDTH - max_scrollback_lines;
 
     if (n<=0)
         memcpy(screen_top, temp_buffer, REAL_WIDTH *HEIGHT *sizeof(screen_char_t));
@@ -882,7 +882,7 @@ static __inline__ screen_char_t *incrementLinePointer(
 #endif
 
     int len;
-    if ((len=[string length]) < 1 || !string) {
+    if ((len=(int)[string length]) < 1 || !string) {
         NSLog(@"%s: invalid string '%@'", __PRETTY_FUNCTION__, string);
         return;
     }
@@ -912,7 +912,7 @@ static __inline__ screen_char_t *incrementLinePointer(
         free(sc);
     } else {
         string = [string precomposedStringWithCanonicalMapping];
-        len=[string length];
+        len=(int)[string length];
         buffer = (screen_char_t *) malloc( 2 * len *sizeof(screen_char_t) );
         if (!buffer) {
             NSLog(@"%s: Out of memory", __PRETTY_FUNCTION__);

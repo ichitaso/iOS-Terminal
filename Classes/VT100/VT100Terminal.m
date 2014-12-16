@@ -1089,7 +1089,7 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
 
         if (result.u.string==nil) {
             int i;
-            for(i=*rmlen-1;i>=0&&!result.u.string;i--) {
+            for(i=(int)*rmlen-1;i>=0&&!result.u.string;i--) {
                 datap[i]=UNKNOWN;
                 result.u.string =
                     [[[NSString alloc] initWithBytes:datap length:*rmlen
@@ -1303,7 +1303,7 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
 - (void)putStreamData:(NSData*)data
 {
   unsigned char* buffer = (unsigned char*)[data bytes];
-  int length = [data length];
+  int length = (int)[data length];
   [streamLock lock];
   if (current_stream_length + length > total_stream_length) {
       int n = (length + current_stream_length) / STANDARD_STREAM_SIZE;
@@ -1350,11 +1350,11 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
 
         if (*datap>=0x20 && *datap<=0x7f) {
             result = decode_ascii_string(datap, datalen, &rmlen);
-            result.length = rmlen;
+            result.length = (int)rmlen;
             result.position = datap;
         } else if (iscontrol(datap[0])) {
             result = decode_control(datap, datalen, &rmlen, ENCODING, SCREEN);
-            result.length = rmlen;
+            result.length = (int)rmlen;
             result.position = datap;
             [self setMode:result];
             [self setCharAttr:result];
@@ -1371,7 +1371,7 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
                 result.u.code = datap[0];
                 rmlen = 1;
             }
-            result.length = rmlen;
+            result.length = (int)rmlen;
             result.position = datap;
         }
 
