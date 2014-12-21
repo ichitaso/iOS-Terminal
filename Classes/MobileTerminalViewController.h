@@ -62,6 +62,10 @@
 - (IBAction)hidefn:(id)sender;
 - (IBAction)showfn:(id)sender;
 - (IBAction)fn:(id)sender;
+- (IBAction)pipe:(id)sender;
+- (IBAction)slash:(id)sender;
+- (IBAction)hyphen:(id)sender;
+- (IBAction)keyboard:(id)sender;
 
 @end
 

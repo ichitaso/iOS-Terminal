@@ -125,6 +125,21 @@
   }
 }
 
+- (IBAction)ctrl:(UIButton *)sender {
+    TerminalKeyboard *keyInput = (TerminalKeyboard *)terminalKeyboard.inputTextField;
+    keyInput.controlKeyMode = !keyInput.controlKeyMode;
+    sender.selected = keyInput.controlKeyMode;
+    [self performSelector:@selector(selectedButton:) withObject:sender afterDelay:3.0];
+}
+
+- (void)selectedButton:(UIButton *)button
+{
+    TerminalKeyboard *keyInput = (TerminalKeyboard *)terminalKeyboard.inputTextField;
+    keyInput.controlKeyMode = NO;
+    button.selected = NO;
+}
+
+
 - (IBAction)esc:(id)sender {
     [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@"%c",0x1b] dataUsingEncoding:NSASCIIStringEncoding]];
 }
@@ -189,6 +204,23 @@
     } else if ([sender.title isEqualToString:@"F12"]){
         [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@"%c[23~",0x1B] dataUsingEncoding:NSUTF8StringEncoding]];
     }
+}
+
+- (IBAction)pipe:(id)sender {
+    [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@"|"] dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (IBAction)slash:(id)sender {
+    [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@"/"] dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (IBAction)hyphen:(id)sender {
+    [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@"-"] dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (IBAction)keyboard:(id)sender {
+    BOOL isShown = keyboardShown;
+    [self setShowKeyboard:!isShown];
 }
 
 // Invoked when the page control is clicked to make a new terminal active.  The
@@ -284,13 +316,20 @@
   // Make the first terminal active
   [self terminalSelectionDidChange:self];
     /*
+    BOOL isPad = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad);
+    
+    CGRect frame = terminalGroupView.frame;
+    
+    float height = (isPad) ? 300 : 100;
+    frame = CGRectMake(frame.origin.x, frame.origin.y, height, frame.size.width);*/
+    /*
     CGRect frame = terminalGroupView.frame;
     frame.origin.y += 49;
     frame.size.height -= 49;
     frame.size.height -= 19;
     terminalGroupView.frame = frame;*/
     fnscroller.contentSize = CGSizeMake(600, 43);
-    specialscroller.contentSize = CGSizeMake(467, 43);
+    specialscroller.contentSize = CGSizeMake(600, 43);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -309,7 +348,8 @@
   }
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
   // This supports everything except for upside down, since upside down is most
   // likely accidental.
   switch (interfaceOrientation) {
@@ -324,18 +364,75 @@
 
 - (BOOL)shouldAutorotate
 {
-    return NO;
+    //if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return YES;
+    //} else {
+    //   return NO;
+    //}
 }
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait;
+    //if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAll;
+    //} else {
+     //   return UIInterfaceOrientationMaskPortrait;
+    //}
+}
+/*
+//iOS6.0より前
+//画面回転に関する制御
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;    //全方位回転
+    
+    //    if(interfaceOrientation == UIInterfaceOrientationPortrait){
+    //        // 通常
+    //        return YES;
+    //    }else if(interfaceOrientation == UIInterfaceOrientationLandscapeLeft){
+    //        // 左に倒した状態
+    //        return YES;
+    //    }else if(interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+    //        // 右に倒した状態
+    //        return YES;
+    //    }else if(interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown){
+    //        // 逆さまの状態
+    //        return NO;
+    //    }
+    
 }
 
+
+//iOS6.0以降
+//回転処理が存在し、可能かどうか
+- (BOOL)shouldAutorotate
+{
+    return YES; //回転許可
+}
+
+//回転する方向の指定
+- (NSUInteger)supportedInterfaceOrientations
+{
+    //全方位回転
+    return UIInterfaceOrientationMaskAll;
+    ////Portrait(HomeButtonが下)のみ
+    //      return UIInterfaceOrientationMaskPortrait;
+    ////LandscapeLeft(HomeButtonが右)のみ
+    //      return UIInterfaceOrientationMaskLandscapeLeft;
+    ////LandscapeRight(HomeButtonが左)のみ
+    //      return UIInterfaceOrientationMaskLandscapeRight;
+    ////PortraitUpsideDown(HomeButtonが上)のみ
+    //      return UIInterfaceOrientationMaskPortraitUpsideDown;
+    ////UpsideDown(HomeButtonが上)以外回転
+    //  return UIInterfaceOrientationMaskAllButUpsideDown;
+    ////横のみ回転
+    //      return UIInterfaceOrientationMaskLandscape;
+}
+*/
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{  
-  // We rotated, and almost certainly changed the frame size of the text view.
-  [[self view] layoutSubviews];
+{
+    // We rotated, and almost certainly changed the frame size of the text view.
+    [[self view] layoutSubviews];
 }
 
 - (void)didReceiveMemoryWarning {

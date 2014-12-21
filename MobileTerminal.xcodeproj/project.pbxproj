@@ -53,7 +53,6 @@
 		2C66C156101C54C800E4189B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C66C155101C54C800E4189B /* QuartzCore.framework */; };
 		2C72B32C101ABC2F00F10E63 /* libPreferences.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C11C9C91014035800A2746E /* libPreferences.a */; };
 		2C72B3E3101AC4D100F10E63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		950868501A3C33970056FC3F /* DonateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9508684F1A3C33970056FC3F /* DonateController.m */; };
 		9509D9F31A3EAB1B00F40D16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9509D9F21A3EAB1B00F40D16 /* Images.xcassets */; };
 		95FEE5721A3AC9C600636608 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 95FEE56E1A3AC9C600636608 /* arrow_down.png */; };
 		95FEE5731A3AC9C600636608 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 95FEE56F1A3AC9C600636608 /* arrow_left.png */; };
@@ -241,7 +240,6 @@
 		2C72B2BC101ABA9100F10E63 /* PreferencesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PreferencesTests-Info.plist"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MobileTerminal_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileTerminal_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileTerminal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileTerminal-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		9508684F1A3C33970056FC3F /* DonateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonateController.m; sourceTree = "<group>"; };
 		9509D9F21A3EAB1B00F40D16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MobileTerminal/Images.xcassets; sourceTree = "<group>"; };
 		95FEE56E1A3AC9C600636608 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_down.png; path = Resources/arrow_down.png; sourceTree = "<group>"; };
 		95FEE56F1A3AC9C600636608 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_left.png; path = Resources/arrow_left.png; sourceTree = "<group>"; };
@@ -552,7 +550,6 @@
 				2C11CC7F10159F7400A2746E /* Settings.m */,
 				2C11CC8010159F7400A2746E /* TerminalSettings.h */,
 				2C11CC8110159F7400A2746E /* TerminalSettings.m */,
-				9508684F1A3C33970056FC3F /* DonateController.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -917,7 +914,6 @@
 				28D7ACF80DDB3853001CB0EB /* MobileTerminalViewController.m in Sources */,
 				2C66C084101C47FB00E4189B /* MenuView.m in Sources */,
 				9FF8508E12177F81000CC2A2 /* GestureResponder.m in Sources */,
-				950868501A3C33970056FC3F /* DonateController.m in Sources */,
 				9F6B6D9912297822007BAD59 /* GestureActionRegistry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

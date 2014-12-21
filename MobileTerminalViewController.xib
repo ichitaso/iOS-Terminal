@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment version="768" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -176,9 +176,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <items>
-                                        <barButtonItem title="Esc" id="74">
+                                        <barButtonItem title="Ctrl" id="74" userLabel="ctrl">
                                             <connections>
-                                                <action selector="esc:" destination="-1" id="81"/>
+                                                <action selector="ctrl:" destination="-1" id="B4c-5z-3fK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="Esc" id="GTa-XX-eKP">
+                                            <connections>
+                                                <action selector="esc:" destination="-1" id="Que-9L-jLz"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem title="F#" id="75">
@@ -189,6 +194,21 @@
                                         <barButtonItem title="Tab" id="76">
                                             <connections>
                                                 <action selector="tab:" destination="-1" id="82"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="|" id="aoH-Sd-msV">
+                                            <connections>
+                                                <action selector="pipe:" destination="-1" id="iV7-6d-Pqs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="/" id="9Li-oW-EnC">
+                                            <connections>
+                                                <action selector="slash:" destination="-1" id="ymV-5k-jDc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="-" id="X6b-gw-nJy">
+                                            <connections>
+                                                <action selector="hyphen:" destination="-1" id="WH7-DK-NTT"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem image="arrow_left.png" id="77">
@@ -209,6 +229,11 @@
                                         <barButtonItem image="arrow_right.png" id="103">
                                             <connections>
                                                 <action selector="right:" destination="-1" id="126"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="Key" id="NXG-kM-0xu">
+                                            <connections>
+                                                <action selector="keyboard:" destination="-1" id="xDa-VO-YSC"/>
                                             </connections>
                                         </barButtonItem>
                                     </items>

@@ -15,7 +15,7 @@ static BOOL Alert2;
 {
   [super awakeFromNib];
   //Settings* settings = [Settings sharedInstance];
-  versionLabel.text = [NSString stringWithFormat:@"v1.0.1"];
+  versionLabel.text = [NSString stringWithFormat:@"v1.0.2"];
 }
 
 - (IBAction)openDonate:(id)sender

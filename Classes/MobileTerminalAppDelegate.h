@@ -7,14 +7,33 @@
 
 @class Settings;
 
+@implementation UINavigationController (Rotation)
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return [self.viewControllers.lastObject supportedInterfaceOrientations];
+}
+
+- (BOOL)shouldAutorotate
+{
+    return [self.viewControllers.lastObject shouldAutorotate];
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return [self.viewControllers.lastObject preferredInterfaceOrientationForPresentation];
+}
+
+@end
+
 @interface MobileTerminalAppDelegate : NSObject <UIApplicationDelegate,
-                                                 MobileTerminalInterfaceDelegate> {
+MobileTerminalInterfaceDelegate> {
 @private
-  UIWindow *window;
-  UINavigationController *navigationController;
-  MobileTerminalViewController *terminalViewController;
-  PreferencesViewController *preferencesViewController;
-  BOOL inPreferences;
+    UIWindow *window;
+    UINavigationController *navigationController;
+    MobileTerminalViewController *terminalViewController;
+    PreferencesViewController *preferencesViewController;
+    BOOL inPreferences;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -26,4 +45,3 @@
 - (void)rootViewDidAppear;
 
 @end
-
