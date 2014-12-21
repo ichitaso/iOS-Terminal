@@ -65,6 +65,8 @@
 - (IBAction)pipe:(id)sender;
 - (IBAction)slash:(id)sender;
 - (IBAction)hyphen:(id)sender;
+- (IBAction)bar:(id)sender;
+- (IBAction)semiCoron:(id)sender;
 - (IBAction)keyboard:(id)sender;
 
 @end

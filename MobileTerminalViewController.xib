@@ -211,6 +211,16 @@
                                                 <action selector="hyphen:" destination="-1" id="WH7-DK-NTT"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem title="_" id="xYf-Nt-klY">
+                                            <connections>
+                                                <action selector="bar:" destination="-1" id="kh0-4L-v8Z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title=";" id="zZi-GM-YRY">
+                                            <connections>
+                                                <action selector="semiCoron:" destination="-1" id="bl6-93-rVm"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem image="arrow_left.png" id="77">
                                             <connections>
                                                 <action selector="left:" destination="-1" id="123"/>

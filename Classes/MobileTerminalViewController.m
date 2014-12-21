@@ -218,6 +218,15 @@
     [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@"-"] dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
+- (IBAction)bar:(id)sender {
+    [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@"_"] dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (IBAction)semiCoron:(id)sender
+{
+    [[terminalGroupView terminalAtIndex:[terminalSelector currentPage]] receiveKeyboardInput:[[NSString stringWithFormat:@";"] dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
 - (IBAction)keyboard:(id)sender {
     BOOL isShown = keyboardShown;
     [self setShowKeyboard:!isShown];
@@ -329,7 +338,7 @@
     frame.size.height -= 19;
     terminalGroupView.frame = frame;*/
     fnscroller.contentSize = CGSizeMake(600, 43);
-    specialscroller.contentSize = CGSizeMake(600, 43);
+    specialscroller.contentSize = CGSizeMake(640, 43);
 }
 
 - (void)viewDidAppear:(BOOL)animated
