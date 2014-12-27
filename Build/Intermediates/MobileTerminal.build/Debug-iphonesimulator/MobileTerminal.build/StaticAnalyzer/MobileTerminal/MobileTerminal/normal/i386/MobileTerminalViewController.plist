@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+ <key>clang_version</key>
+<string>Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)</string>
+ <key>files</key>
+ <array>
+  <string>/Users/Mitsuhiro/Desktop/iOS-Terminal-master-Adolfoi_20141223/Classes/MobileTerminalViewController.m</string>
+ </array>
+ <key>diagnostics</key>
+ <array>
+  <dict>
+   <key>path</key>
+   <array>
+    <dict>
+     <key>kind</key><string>event</string>
+     <key>location</key>
+     <dict>
+      <key>line</key><integer>368</integer>
+      <key>col</key><integer>1</integer>
+      <key>file</key><integer>0</integer>
+     </dict>
+     <key>depth</key><integer>0</integer>
+     <key>extended_message</key>
+     <string>The &apos;viewDidAppear:&apos; instance method in UIViewController subclass &apos;MobileTerminalViewController&apos; is missing a [super viewDidAppear:] call</string>
+     <key>message</key>
+     <string>The &apos;viewDidAppear:&apos; instance method in UIViewController subclass &apos;MobileTerminalViewController&apos; is missing a [super viewDidAppear:] call</string>
+    </dict>
+   </array>
+   <key>description</key><string>The &apos;viewDidAppear:&apos; instance method in UIViewController subclass &apos;MobileTerminalViewController&apos; is missing a [super viewDidAppear:] call</string>
+   <key>category</key><string>Core Foundation/Objective-C</string>
+   <key>type</key><string>Missing call to superclass</string>
+  <key>issue_context_kind</key><string>Objective-C method</string>
+  <key>issue_context</key><string>viewDidAppear:</string>
+  <key>issue_hash</key><string>13</string>
+  <key>location</key>
+  <dict>
+   <key>line</key><integer>368</integer>
+   <key>col</key><integer>1</integer>
+   <key>file</key><integer>0</integer>
+  </dict>
+  </dict>
+ </array>
+</dict>
+</plist>

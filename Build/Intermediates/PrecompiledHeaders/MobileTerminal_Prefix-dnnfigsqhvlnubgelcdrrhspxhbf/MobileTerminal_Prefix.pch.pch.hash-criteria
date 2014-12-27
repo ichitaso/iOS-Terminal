@@ -1,0 +1,21 @@
+-x
+objective-c
+-arch
+armv7
+-std=c99
+-fpascal-strings
+-O0
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk
+-g
+-fvisibility=hidden
+-miphoneos-version-min=5.0
+-iquote
+-iquote
+-I/Users/Mitsuhiro/Desktop/iOS-Terminal-master-1/Build/Products/Debug-iphoneos/include
+-I/Users/Mitsuhiro/Desktop/iOS-Terminal-master-1
+-F/Users/Mitsuhiro/Desktop/iOS-Terminal-master-1/Build/Products/Debug-iphoneos
+arm-apple-darwin14.0.0
+"4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.56)"
+SDK_PRODUCT_BUILD_VERSION=12B411
+12B411

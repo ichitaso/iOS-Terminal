@@ -26,7 +26,7 @@
                                            selector:@selector(dataAvailable:)
                                                name:NSFileHandleReadCompletionNotification
                                              object:[subProcess fileHandle]];
-  [[subProcess fileHandle] readInBackgroundAndNotify];   
+  [[subProcess fileHandle] readInBackgroundAndNotify];
 }
 
 - (void)releaseSubProcess

@@ -25,6 +25,19 @@
 @synthesize gestureResponder;
 @synthesize gestureActionRegistry;
 
+static BOOL isPad()
+{
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+static BOOL isLandscape(void)
+{
+    return UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+}
+
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (void)awakeFromNib
 {
@@ -79,6 +92,15 @@
   CGRect viewFrame = [contentView frame];
   viewFrame.size.height -= keyboardSize.height;
   contentView.frame = viewFrame;
+    
+    CGRect frame = terminalGroupView.frame;
+    if (isPad() && isLandscape()) {
+        frame.size.height = 338;
+        terminalGroupView.frame = frame;
+    } else if (isPad()) {
+        frame.size.height = 684;
+        terminalGroupView.frame = frame;
+    }
 }
 
 - (void)keyboardWasHidden:(NSNotification*)aNotification
@@ -98,6 +120,15 @@
   CGRect viewFrame = [contentView frame];
   viewFrame.size.height += keyboardSize.height;
   contentView.frame = viewFrame;
+    
+    CGRect frame = terminalGroupView.frame;
+    if (isPad() && isLandscape()) {
+        frame.size.height = 692;
+        terminalGroupView.frame = frame;
+    } else if (isPad()) {
+        frame.size.height = 947;
+        terminalGroupView.frame = frame;
+    }
 }
 
 - (void)setShowKeyboard:(BOOL)showKeyboard
@@ -325,13 +356,6 @@
   // Make the first terminal active
   [self terminalSelectionDidChange:self];
     /*
-    BOOL isPad = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad);
-    
-    CGRect frame = terminalGroupView.frame;
-    
-    float height = (isPad) ? 300 : 100;
-    frame = CGRectMake(frame.origin.x, frame.origin.y, height, frame.size.width);*/
-    /*
     CGRect frame = terminalGroupView.frame;
     frame.origin.y += 49;
     frame.size.height -= 49;
@@ -339,6 +363,13 @@
     terminalGroupView.frame = frame;*/
     fnscroller.contentSize = CGSizeMake(600, 43);
     specialscroller.contentSize = CGSizeMake(640, 43);
+    
+    
+    //terminalSelector = [UIPageControl appearance];
+    //terminalSelector.pageIndicatorTintColor = [UIColor lightGrayColor];
+    //terminalSelector.currentPageIndicatorTintColor = [UIColor blackColor];
+    //terminalSelector.backgroundColor = [UIColor blackColor];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -357,36 +388,92 @@
   }
 }
 
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                duration:(NSTimeInterval)duration {
+    // 画面回転前
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    // 画面回転後
+    // Reset the font in case it changed in the preferenes view
+    TerminalSettings* settings = [[Settings sharedInstance] terminalSettings];
+    UIFont* font = [settings font];
+    for (int i = 0; i < [terminalGroupView terminalCount]; ++i) {
+        TerminalView* terminalView = [terminalGroupView terminalAtIndex:i];
+        [terminalView setFont:font];
+        [terminalView setNeedsLayout];
+    }
+}
+
+//iOS8
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    if (size.width <= size.height) {
+        // 画面回転後、縦向きになった
+        // Reset the font in case it changed in the preferenes view
+        TerminalSettings* settings = [[Settings sharedInstance] terminalSettings];
+        UIFont* font = [settings font];
+        for (int i = 0; i < [terminalGroupView terminalCount]; ++i) {
+            TerminalView* terminalView = [terminalGroupView terminalAtIndex:i];
+            [terminalView setFont:font];
+            [terminalView setNeedsLayout];
+            
+            // We rotated, and almost certainly changed the frame size of the text view.
+            [[self view] layoutSubviews];
+        }
+    } else {
+        // 画面回転後、横向きになった
+        // Reset the font in case it changed in the preferenes view
+        TerminalSettings* settings = [[Settings sharedInstance] terminalSettings];
+        UIFont* font = [settings font];
+        for (int i = 0; i < [terminalGroupView terminalCount]; ++i) {
+            TerminalView* terminalView = [terminalGroupView terminalAtIndex:i];
+            [terminalView setFont:font];
+            [terminalView setNeedsLayout];
+            
+            // We rotated, and almost certainly changed the frame size of the text view.
+            [[self view] layoutSubviews];
+        }
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  // This supports everything except for upside down, since upside down is most
-  // likely accidental.
-  switch (interfaceOrientation) {
-    case UIInterfaceOrientationPortrait:
-    //case UIInterfaceOrientationLandscapeLeft:
-    //case UIInterfaceOrientationLandscapeRight:
-      return YES;
-    default:
-      return NO;
-  }
+    // This supports everything except for upside down, since upside down is most
+    // likely accidental.
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+        //case UIInterfaceOrientationLandscapeLeft:
+        //case UIInterfaceOrientationLandscapeRight:
+            return YES;
+        default:
+            if (isPad()) {
+                return YES;
+            } else {
+                return NO;
+            }
+    }
 }
 
 - (BOOL)shouldAutorotate
 {
-    //if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    if (isPad() || screenSize.height == 736.0 || screenSize.width == 736.0) {
         return YES;
-    //} else {
-    //   return NO;
-    //}
+    } else {
+       return NO;
+    }
 }
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    //if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    if (isPad() || screenSize.height == 736.0 || screenSize.width == 736.0) {
         return UIInterfaceOrientationMaskAll;
-    //} else {
-     //   return UIInterfaceOrientationMaskPortrait;
-    //}
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
 }
 /*
 //iOS6.0より前
@@ -437,13 +524,25 @@
     ////横のみ回転
     //      return UIInterfaceOrientationMaskLandscape;
 }
-*/
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     // We rotated, and almost certainly changed the frame size of the text view.
     [[self view] layoutSubviews];
+    // Reset the font in case it changed in the preferenes view
+    //TerminalSettings* settings = [[Settings sharedInstance] terminalSettings];
+    //UIFont* font = [settings font];
+    for (int i = 0; i < [terminalGroupView terminalCount]; ++i) {
+        TerminalView* terminalView = [terminalGroupView terminalAtIndex:i];
+        [terminalView setFont:[UIFont fontWithName:@"Courier" size:12]];
+        [terminalView setNeedsLayout];
+        
+        // We rotated, and almost certainly changed the frame size of the text view.
+        [[self view] layoutSubviews];
+        
+    }
 }
-
+*/
 - (void)didReceiveMemoryWarning {
 	// TODO(allen): Should clear scrollback buffers to save memory? 
   [super didReceiveMemoryWarning];

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment version="768" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment version="768" defaultVersion="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MobileTerminalViewController">
@@ -196,6 +196,26 @@
                                                 <action selector="tab:" destination="-1" id="82"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem image="arrow_left.png" id="77">
+                                            <connections>
+                                                <action selector="left:" destination="-1" id="123"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem image="arrow_up.png" id="101">
+                                            <connections>
+                                                <action selector="up:" destination="-1" id="105"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem image="arrow_down.png" id="102">
+                                            <connections>
+                                                <action selector="down:" destination="-1" id="125"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem image="arrow_right.png" id="103">
+                                            <connections>
+                                                <action selector="right:" destination="-1" id="126"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem title="|" id="aoH-Sd-msV">
                                             <connections>
                                                 <action selector="pipe:" destination="-1" id="iV7-6d-Pqs"/>
@@ -221,26 +241,6 @@
                                                 <action selector="semiCoron:" destination="-1" id="bl6-93-rVm"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem image="arrow_left.png" id="77">
-                                            <connections>
-                                                <action selector="left:" destination="-1" id="123"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem image="arrow_up.png" id="101">
-                                            <connections>
-                                                <action selector="up:" destination="-1" id="105"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem image="arrow_down.png" id="102">
-                                            <connections>
-                                                <action selector="down:" destination="-1" id="125"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem image="arrow_right.png" id="103">
-                                            <connections>
-                                                <action selector="right:" destination="-1" id="126"/>
-                                            </connections>
-                                        </barButtonItem>
                                         <barButtonItem title="Key" id="NXG-kM-0xu">
                                             <connections>
                                                 <action selector="keyboard:" destination="-1" id="xDa-VO-YSC"/>
@@ -255,9 +255,8 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
@@ -266,9 +265,4 @@
         <image name="arrow_right.png" width="24" height="24"/>
         <image name="arrow_up.png" width="24" height="24"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

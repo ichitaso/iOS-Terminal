@@ -19,9 +19,10 @@
                 <outlet property="window" destination="12" id="14"/>
             </connections>
         </customObject>
-        <viewController nibName="MobileTerminalViewController" id="10" customClass="MobileTerminalViewController">
+        <viewController nibName="MobileTerminalViewController" wantsFullScreenLayout="YES" id="10" customClass="MobileTerminalViewController">
             <extendedEdge key="edgesForExtendedLayout"/>
             <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="gestureActionRegistry" destination="87" id="125"/>
                 <outlet property="gestureResponder" destination="85" id="130"/>
@@ -31,7 +32,7 @@
         <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="12">
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
         </window>
         <navigationController id="52">

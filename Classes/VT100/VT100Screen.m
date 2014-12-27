@@ -875,12 +875,12 @@ static __inline__ screen_char_t *incrementLinePointer(
 - (void)setString:(NSString *)string ascii:(BOOL)ascii
 {
     screen_char_t *buffer;
-
+    
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[VT100Screen setString:%@ at %d]",
-            __FILE__, __LINE__, string, CURSOR_X);
+          __FILE__, __LINE__, string, CURSOR_X);
 #endif
-
+    
     int len;
     if ((len=(int)[string length]) < 1 || !string) {
         NSLog(@"%s: invalid string '%@'", __PRETTY_FUNCTION__, string);
@@ -889,13 +889,13 @@ static __inline__ screen_char_t *incrementLinePointer(
     if (ascii) {
         unichar *sc = (unichar *) malloc(len *sizeof(unichar));
         int fg=[TERMINAL foregroundColorCode], bg=[TERMINAL backgroundColorCode];
-
+        
         buffer = (screen_char_t *) malloc([string length] * sizeof(screen_char_t));
         if (!buffer) {
             NSLog(@"%s: Out of memory", __PRETTY_FUNCTION__);
             return;
         }
-
+        
         [string getCharacters: sc];
         int i;
         for (i = 0; i < len; i++) {
@@ -903,7 +903,7 @@ static __inline__ screen_char_t *incrementLinePointer(
             buffer[i].fg_color = fg;
             buffer[i].bg_color = bg;
         }
-
+        
         // check for graphical characters
         if (charset[[TERMINAL charset]]) {
             translate(buffer,len);
@@ -919,12 +919,12 @@ static __inline__ screen_char_t *incrementLinePointer(
             return;
         }
         padString(string, buffer, [TERMINAL foregroundColorCode],
-                [TERMINAL backgroundColorCode], &len, [TERMINAL encoding]);
+                  [TERMINAL backgroundColorCode], &len, [TERMINAL encoding]);
     }
-
+    
     if (len < 1)
         return;
-
+    
     // TODO(allen): Implement insert mode
     for (int idx = 0; idx < len; idx++) {
         // cut off in the middle of double width characters
@@ -934,21 +934,21 @@ static __inline__ screen_char_t *incrementLinePointer(
         screen_char_t *aLine = [self getLineAtScreenIndex: CURSOR_Y];
         aLine[CURSOR_X] = buffer[idx];
         dirty[CURSOR_Y * WIDTH + CURSOR_X] = 1;
-      
+        
         // Dirty the new cursor position
         CURSOR_X++;
         dirty[CURSOR_Y * WIDTH + CURSOR_X] = 1;
-      
+        
         // Wrap
         if (CURSOR_X >= WIDTH) {
             CURSOR_X = 0;
             [self getLineAtScreenIndex: CURSOR_Y][WIDTH].ch = 1;
-            [self setNewLine]; 
+            [self setNewLine];
         }
     }
-  
+    
     free(buffer);
-
+    
 #if DEBUG_METHOD_TRACE
     NSLog(@"setString done at %d", CURSOR_X);
 #endif

@@ -1,0 +1,25 @@
+-x
+objective-c
+-arch
+i386
+-std=c99
+-fpascal-strings
+-O0
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk
+-fexceptions
+-fasm-blocks
+-g
+-fvisibility=hidden
+-fobjc-abi-version=2
+-fobjc-legacy-dispatch
+-mios-simulator-version-min=5.0
+-iquote
+-iquote
+-I/Users/Mitsuhiro/Desktop/iOS-Terminal-master-1/Build/Products/Debug-iphonesimulator/include
+-I/Users/Mitsuhiro/Desktop/iOS-Terminal-master-1
+-F/Users/Mitsuhiro/Desktop/iOS-Terminal-master-1/Build/Products/Debug-iphonesimulator
+i386-apple-darwin14.0.0
+"4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.56)"
+SDK_PRODUCT_BUILD_VERSION=12B411
+12B411
